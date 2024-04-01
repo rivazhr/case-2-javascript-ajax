@@ -1,0 +1,122 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+
+body {
+  font-family: "Rubik", sans-serif;
+}
+
+:root {
+  --bs-primary: #496989;
+  --bs-primary-rgb: 73, 105, 137;
+  --bs-link-color: #fff;
+  --bs-link-color-rgb: 255, 255, 255;
+  --bs-link-hover-color: #fff;
+  --bs-link-hover-color-rgb: 255, 255, 255;
+}
+
+.navbar {
+  --bs-navbar-hover-color: #496989;
+  --bs-navbar-brand-hover-color: #496989;
+  --bs-navbar-active-color: #496989;
+}
+
+.dropdown-toggle::after {
+  border: none;
+}
+
+.navbar-nav .nav-link,
+.navbar-brand {
+  font-weight: 500;
+  color: #496989;
+}
+
+button {
+  background-color: transparent;
+  border: 0;
+  padding: 0px;
+}
+
+.btn-custom {
+  background-color: #F9F07A;
+}
+
+.btn-custom:hover {
+  background-color: rgb(255, 243, 82);
+}
+
+.btn-custom:active {
+  background-color: rgb(255, 243, 82) !important;
+}
+
+a {
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.nav-link:hover {
+  font-weight:700;
+  transition: transform 0.3s ease;
+}
+
+#chat-expand {
+  width: 521px;
+  height: 70vh;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+#ruang {
+  padding: 16px;
+  overflow: overlay;
+}
+
+button#chat:hover {
+  transform: translateY(-2px);
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+}
+
+#upfile-label:hover {
+  cursor: pointer;
+}
+
+.chatPenerima {
+  align-self: flex-start;
+  background-color: #A3C0FF;
+  text-wrap: wrap;
+  word-wrap: break-word;
+  max-width: 70%;
+  margin: 4px 0px;
+  padding: 16px;
+  border-radius: 16px;
+}
+
+.chatPengirim {
+  align-self: flex-end;
+  background-color: #C5D7FF;
+  text-wrap: wrap;
+  word-wrap: break-word;
+  max-width: 70%;
+  margin: 4px 0px;
+  padding: 16px;
+  border-radius: 16px;
+}
+
+.chatPenerima .waktu {
+  align-self: flex-start;
+  justify-content: start; 
+  font-size: x-small;
+}
+
+.chatPengirim .waktu {
+  align-self: flex-end; 
+  justify-content: end; 
+  font-size: x-small;
+}
+
+.form-control#pesan {
+  border: none;
+  border-radius: 0;
+}
+
+.form-control:focus#pesan {
+  box-shadow: none;
+}
