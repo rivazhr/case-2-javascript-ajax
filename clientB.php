@@ -38,7 +38,7 @@
       <!-- Expanded Chat -->
       <div id="chat-expand" class="visually-hidden rounded-3 bg-white d-flex flex-column shadow-sm mb-4">
         <div class="bg-primary rounded-top-3 p-3 text-white d-flex align-items-center">
-          <img class="me-2" style="width: 45px;" src="img\foto-profil.svg" alt="">
+          <img class="me-2" style="width: 45px;" src="img\foto-profilB.svg" alt="">
           <h6 id=name class="mx-3 my-0 w-100">Widi</h6>
           <button id="minimize-chat"><img src="img/minimize-button.svg" alt=""></button>
         </div>

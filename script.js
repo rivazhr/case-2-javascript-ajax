@@ -1,6 +1,9 @@
 // Mendefinisikan username
 let username = document.querySelector("#name").innerHTML;
 
+// Memperbarui Chat
+perbaruiChat();
+
 // Menampilkan atau menyembunyikan chat
 let sembunyikan = document.querySelector("button#minimize-chat");
 let chat = document.querySelector("#chat-expand");
@@ -8,7 +11,6 @@ let bukaChat = document.querySelector("button#chat");
 let mulaiChat = document.querySelector("button#mulaiChat")
 
 mulaiChat.addEventListener("click", (e) => {
-  perbaruiChat();
   chat.classList.remove("visually-hidden");
   bukaChat.classList.add("visually-hidden");
 });
@@ -19,12 +21,12 @@ sembunyikan.addEventListener("click", (e) => {
 });
 
 bukaChat.addEventListener("click", (e) => {
-  perbaruiChat();
   chat.classList.remove("visually-hidden");
   bukaChat.classList.add("visually-hidden");
 });
 
 // Mengirim pesan
+let ruang = document.querySelector("#ruang");
 let sendPesan = document.querySelector('form#kirim-pesan > button[type="submit"]');
 sendPesan.addEventListener("click", (e) => {
   e.preventDefault();
@@ -54,10 +56,12 @@ sendPesan.addEventListener("click", (e) => {
     .catch((error) => console.error("Error:", error));
 });
 
+function scrollKeBawah() {
+  ruang.scrollTop = ruang.scrollHeight;
+}
+
 // Menampilkan chat terbaru
-let ruang = document.querySelector("#ruang");
 function perbaruiChat() {
-  setTimeout(perbaruiChat, 1000)
   fetch("ambil_chat.php")
     .then((response) => response.text())
     .then((data) => {
@@ -88,5 +92,7 @@ function perbaruiChat() {
       ruang.scrollTop = ruang.scrollHeight; 
     })
     .catch((error) => console.error("Error:", error));
+
+    setTimeout(perbaruiChat, 1000);
 }
 
