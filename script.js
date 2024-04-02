@@ -25,8 +25,7 @@ bukaChat.addEventListener("click", (e) => {
   bukaChat.classList.add("visually-hidden");
 });
 
-// Mengirim pesan
-let ruang = document.querySelector("#ruang");
+// Mengirim pesan ke server
 let sendPesan = document.querySelector('form#kirim-pesan > button[type="submit"]');
 sendPesan.addEventListener("click", (e) => {
   e.preventDefault();
@@ -56,7 +55,8 @@ sendPesan.addEventListener("click", (e) => {
     .catch((error) => console.error("Error:", error));
 });
 
-// Menampilkan chat terbaru
+// Menampilkan chat terbaru dengan mengirim request ke server
+let ruang = document.querySelector("#ruang");
 function perbaruiChat() {
   fetch("ambil_chat.php")
     .then((response) => response.text())
