@@ -56,10 +56,6 @@ sendPesan.addEventListener("click", (e) => {
     .catch((error) => console.error("Error:", error));
 });
 
-function scrollKeBawah() {
-  ruang.scrollTop = ruang.scrollHeight;
-}
-
 // Menampilkan chat terbaru
 function perbaruiChat() {
   fetch("ambil_chat.php")
@@ -69,24 +65,7 @@ function perbaruiChat() {
       const lines = data.split("\n");
 
       lines.forEach((line) => {
-        const parts = line.split("~|~");
-        let waktu = parts[0];
-        let usn = parts[1];
-        let teks = parts[2];
-        let gambar = parts[3];
-
-        if (teks != null || gambar != null) {
-          const newChat = document.createElement("div");
-          if (usn == username) newChat.className = "chatPengirim";
-          else newChat.className = "chatPenerima";
-
-          if (gambar != null)
-            newChat.innerHTML += `<img class='img-fluid w-100' src="${gambar}">`;
-          newChat.innerHTML += teks;
-          newChat.innerHTML += `<div class="waktu d-flex pt-2">${waktu}</div>`;
-          
-          kontenRuang += newChat.outerHTML;
-        }
+        kontenRuang += buatChat(line);
       });
       ruang.innerHTML = kontenRuang; 
       ruang.scrollTop = ruang.scrollHeight; 
@@ -96,3 +75,25 @@ function perbaruiChat() {
     setTimeout(perbaruiChat, 1000);
 }
 
+// Membuat tampilan bubble chat
+function buatChat(line){
+  const parts = line.split("~|~");
+  let waktu = parts[0];
+  let usn = parts[1];
+  let teks = parts[2];
+  let gambar = parts[3];
+
+  if (teks != null || gambar != null) {
+    const newChat = document.createElement("div");
+    if (usn == username) newChat.className = "chatPengirim";
+    else newChat.className = "chatPenerima";
+
+    if (gambar != null)
+      newChat.innerHTML += `<img class='img-fluid w-100' src="${gambar}">`;
+    newChat.innerHTML += teks;
+    newChat.innerHTML += `<div class="waktu d-flex pt-2">${waktu}</div>`;
+          
+    return newChat.outerHTML;
+  }
+  return "";
+}
