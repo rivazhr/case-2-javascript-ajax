@@ -55,13 +55,13 @@ sendPesan.addEventListener("click", (e) => {
 });
 
 // Menampilkan chat terbaru
-setInterval(perbaruiChat, 5000);
 let ruang = document.querySelector("#ruang");
 function perbaruiChat() {
-  ruang.innerHTML = "";
+  setTimeout(perbaruiChat, 1000)
   fetch("ambil_chat.php")
     .then((response) => response.text())
     .then((data) => {
+      let kontenRuang = "";
       const lines = data.split("\n");
 
       lines.forEach((line) => {
@@ -80,10 +80,13 @@ function perbaruiChat() {
             newChat.innerHTML += `<img class='img-fluid w-100' src="${gambar}">`;
           newChat.innerHTML += teks;
           newChat.innerHTML += `<div class="waktu d-flex pt-2">${waktu}</div>`;
-          ruang.appendChild(newChat);
+          
+          kontenRuang += newChat.outerHTML;
         }
       });
-      ruang.scrollTop = ruang.scrollHeight;
+      ruang.innerHTML = kontenRuang; 
+      ruang.scrollTop = ruang.scrollHeight; 
     })
     .catch((error) => console.error("Error:", error));
 }
+
