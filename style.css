@@ -100,13 +100,7 @@ button#chat:hover {
   border-radius: 16px;
 }
 
-.chatPenerima .waktu {
-  align-self: flex-start;
-  justify-content: start; 
-  font-size: x-small;
-}
-
-.chatPengirim .waktu {
+.waktu {
   align-self: flex-end; 
   justify-content: end; 
   font-size: x-small;

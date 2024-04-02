@@ -8,16 +8,18 @@ let bukaChat = document.querySelector("button#chat");
 let mulaiChat = document.querySelector("button#mulaiChat")
 
 mulaiChat.addEventListener("click", (e) => {
+  perbaruiChat();
   chat.classList.remove("visually-hidden");
   bukaChat.classList.add("visually-hidden");
 });
 
-sembunyikan.addEventListener("click", (e) => {
+sembunyikan.addEventListener("click", (e) => {  
   chat.classList.add("visually-hidden");
   bukaChat.classList.remove("visually-hidden");
 });
 
 bukaChat.addEventListener("click", (e) => {
+  perbaruiChat();
   chat.classList.remove("visually-hidden");
   bukaChat.classList.add("visually-hidden");
 });
@@ -46,7 +48,6 @@ sendPesan.addEventListener("click", (e) => {
     })
     .then((data) => {
       console.log(data);
-      // Mengosongkan isian teks dan gambar setelah berhasil dikirim
       document.querySelector('input[name="pesan"]').value = "";
       document.querySelector('input[name="upfile"]').value = "";
     })

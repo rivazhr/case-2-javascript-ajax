@@ -1,7 +1,9 @@
 <?php
-// Membaca file chat.txt ke dalam array
-$lines = file('chat.txt');
+// Membaca file chat.txt
+$file = fopen('chat.txt', 'r');
 
-foreach ($lines as $line) {
-  echo $line;
+if ($file) {
+  while (($line = fgets($file)) != false) {
+    echo $line;
+  }
 }
