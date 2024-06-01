@@ -1,7 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
-body {
-  font-family: "Rubik", sans-serif;
+html, body {
+  font-family: 'Inter';
+  display: flex;
+  flex-direction: column;
 }
 
 :root {
@@ -13,10 +15,38 @@ body {
   --bs-link-hover-color-rgb: 255, 255, 255;
 }
 
+dialog {
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: fit-content; 
+  margin: auto;  
+}
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+}
+
+h1 {
+  font-weight: 600;
+}
+
+#login, #register, #update {
+  height: fit-content;
+  min-width: 40%;
+  background-color: #9BABCE;
+  color: black;
+}
+
 .navbar {
   --bs-navbar-hover-color: #496989;
   --bs-navbar-brand-hover-color: #496989;
   --bs-navbar-active-color: #496989;
+  background-color: white;
+  box-shadow: 5px 5px 5px rgba(0,0,0,0.1);
 }
 
 .dropdown-toggle::after {
@@ -37,6 +67,7 @@ button {
 
 .btn-custom {
   background-color: #F9F07A;
+  font-weight: 500;
 }
 
 .btn-custom:hover {
@@ -49,10 +80,11 @@ button {
 
 a {
   text-decoration: none;
+  color: black;
   font-weight: 500;
 }
 
-.nav-link:hover {
+.nav-link:hover, .nav-link.active {
   font-weight:700;
   transition: transform 0.3s ease;
 }
@@ -62,6 +94,8 @@ a {
   height: 70vh;
   max-height: 70vh;
   overflow-y: auto;
+  display: flex;
+  flex-direction: column;
 }
 
 #ruang {
@@ -74,30 +108,26 @@ button#chat:hover {
   filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
 }
 
-#upfile-label:hover {
-  cursor: pointer;
-}
-
 .chatPenerima {
   align-self: flex-start;
-  background-color: #A3C0FF;
-  text-wrap: wrap;
-  word-wrap: break-word;
-  max-width: 70%;
-  margin: 4px 0px;
-  padding: 16px;
-  border-radius: 16px;
-}
-
-.chatPengirim {
-  align-self: flex-end;
   background-color: #C5D7FF;
   text-wrap: wrap;
   word-wrap: break-word;
   max-width: 70%;
   margin: 4px 0px;
   padding: 16px;
-  border-radius: 16px;
+  border-radius: 16px 16px 16px 0px;
+}
+
+.chatPengirim {
+  align-self: flex-end;
+  background-color: #A3C0FF;
+  text-wrap: wrap;
+  word-wrap: break-word;
+  max-width: 70%;
+  margin: 4px 0px;
+  padding: 16px;
+  border-radius: 16px 16px 0px 16px;
 }
 
 .waktu {
